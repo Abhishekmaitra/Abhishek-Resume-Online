@@ -116,6 +116,7 @@ hr {
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
+  /* padding-bottom: 200px; */
 }
 
 /* The actual timeline (the vertical ruler) */
@@ -123,7 +124,7 @@ hr {
   content: "";
   position: absolute;
   width: 6px;
-  background-color: white;
+  background-color: rgb(208, 228, 228);
   top: 0;
   bottom: 0;
   left: 50%;
@@ -140,16 +141,22 @@ hr {
 
 /* The circles on the timeline */
 .container::after {
-  content: "";
+  font-family: FontAwesome;
+  content: "\f5b8";
+  color: white;
+  font-size: 23px;
   position: absolute;
-  width: 25px;
-  height: 25px;
+  width: 23px;
+  height: 23px;
   right: -17px;
-  background-color: #ff9f55;
-  border: 4px solid white;
+  background-color: #041c32;
+  border: 4px solid #041c32;
   top: 15px;
   border-radius: 50%;
   z-index: 1;
+}
+.container:hover::after {
+  content: "\f583";
 }
 
 /* Place the container to the left */
@@ -247,15 +254,105 @@ hr {
   }
 }
 
-.btn {
-  margin-top: 500px;
-  margin-bottom: 40px;
-  margin-right: 200px;
-  margin-left: 200px;
+hr {
+  width: 10%;
+  border: 5px dotted;
+  border-style: none none dotted;
+  color: grey;
 }
-/* ----------------------------------Empty Space---------------------- */
-#emptySpace00 {
+
+.hrDiv {
+  padding: 60px;
+}
+/* ----------------------------------Skill Space---------------------- */
+.mySkills {
   height: 1000px;
-  background-color: #e84393;
-  background-image: linear-gradient(320deg, #040d2c 0%, #000000 74%);
+  background-color: #130f40;
+  background-image: linear-gradient(345deg, #130f40 0%, #000000 74%);
+}
+.skillsWrapper {
+  width: 50%;
+  margin: auto;
+  margin-top: 60px;
+  /* background-color: #e84393; */
+}
+
+@keyframes load {
+  from {
+    width: 0%;
+  }
+}
+@-webkit-keyframes load {
+  from {
+    width: 0%;
+  }
+}
+@-moz-keyframes load {
+  from {
+    width: 0%;
+  }
+}
+@-o-keyframes load {
+  from {
+    width: 0%;
+  }
+}
+
+.bar {
+  background: linear-gradient(315deg, #130f40 0%, #000000 74%);
+  padding: 2px;
+  border-radius: 15px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+.bar.skillBar::before {
+  content: attr(data-skill);
+  background-color: #b33030;
+  display: inline-block;
+  padding: 5px 0 5px 10px;
+  border-radius: inherit;
+  animation: load 2s 0s;
+  -webkit-animation: load 2s 0s;
+  -moz-animation: load 2s 0s;
+  -o-animation: load 2s 0s;
+}
+
+.bar.front::before {
+  background-color: #f0a500;
+}
+.bar.back::before {
+  background-color: #c84b31;
+}
+
+.bar.learning.skillBar::before {
+  width: calc(50% - 10px);
+}
+.bar.basic.skillBar::before {
+  width: calc(50% - 10px);
+}
+
+.bar.advanced.skillBar::before {
+  width: calc(50% - 10px);
+}
+.bar.expert.skillBar::before {
+  width: calc(70% - 10px);
+}
+
+.endingSection {
+  padding-top: 10%;
+  padding-left: 15%;
+  font-family: "Anybody", cursive;
+  font-size: 600%;
+  background: linear-gradient(
+    271deg,
+    #a0e9ff 30%,
+    #a162e8 50%,
+    #f093b0 70%,
+    #edca85 94%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

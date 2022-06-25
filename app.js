@@ -13,3 +13,18 @@ function myFunction() {
   }
   console.log("Scrool");
 }
+
+// --------------Adding intersection observer-----------------
+const bar = document.querySelectorAll(".bar");
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      entry.target.classList.toggle("skillBar", entry.isIntersecting);
+    });
+  },
+  { threshold: 0.6 }
+);
+
+bar.forEach((skill) => {
+  observer.observe(skill);
+});
